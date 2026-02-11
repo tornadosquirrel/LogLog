@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-display: swap;
+}
+
+$glass-bg: rgba(255, 255, 255, 0.03);
+$text-color: #E0E6ED;
+$btn-hover: #3a4556;
+$btn-active: #334155;
+
+@mixin glass-panel {
+  border-top: 0.1vmax solid rgba(255, 255, 255, 0.08);
+  border-left: 0.1vmax solid rgba(255, 255, 255, 0.05);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  background: $glass-bg;
+}
+
+@mixin no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-evenly;
+  background: linear-gradient(145deg, #242933 0%, #101216 100%);
+}
+
+#log {
+  @include glass-panel;
+  @include no-scrollbar;
+  width: 40vmax;
+  height: 40vmax;
+  font-size: 1.5em;
+  color: $text-color;
+  padding: 1em;
+  font-family: 'Pretendard';
+}
+
+#container {
+  width: 20vmax;
+  height: 20vmax;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  #inp {
+    @include glass-panel;
+    @include no-scrollbar;
+    width: 90%;
+    height: 60%;
+    padding: 1em;
+    font-size: 1.5em;
+    color: $text-color;
+    resize: none;
+    outline: none;
+    border-bottom: none;
+    border-right: none;
+    font-family: 'Pretendard';
+  }
+
+  #btn-container {
+    display: flex;
+    width: 90%;
+    height: 20%;
+    justify-content: space-evenly;
+
+    button {
+      @include glass-panel;
+      height: 70%;
+      width: 30%;
+      color: $text-color;
+      font-size: 1.1em;
+      border: none;
+      transition: all 0.2s ease;
+      font-family: 'Pretendard';
+
+      &:hover {
+        background: $btn-hover;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      &:active {
+        background: $btn-active;
+        transform: scale(0.90);
+      }
+    }
+  }
+}
