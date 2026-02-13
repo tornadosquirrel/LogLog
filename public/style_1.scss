@@ -26,6 +26,12 @@ $btn-active: #334155;
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 body {
   display: flex;
   height: 100vh;
@@ -43,15 +49,29 @@ body {
   color: $text-color;
   padding: 1em;
   font-family: 'Pretendard';
+  white-space: pre-wrap;
 }
 
 #container {
   width: 20vmax;
-  height: 20vmax;
+  height: 30vmax;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  #log-id {
+    @include glass-panel;
+    width: 90%;
+    height: 5%;
+    padding: 0.5em;
+    font-size: 1.2em;
+    color: $text-color;
+    outline: none;
+    border-bottom: none;
+    border-right: none;
+    font-family: 'Pretendard';
+  }
 
   #inp {
     @include glass-panel;
@@ -70,14 +90,14 @@ body {
 
   #btn-container {
     display: flex;
-    width: 90%;
-    height: 20%;
+    width: 100%;
+    height: 15%;
     justify-content: space-evenly;
 
     button {
       @include glass-panel;
-      height: 70%;
-      width: 30%;
+      height: 60%;
+      width: 20%;
       color: $text-color;
       font-size: 1.1em;
       border: none;
